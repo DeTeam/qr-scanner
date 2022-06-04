@@ -25,6 +25,7 @@ declare class QrScanner {
     private _paused;
     private _flashOn;
     private _destroyed;
+    private _videoTrackConstraints?;
     constructor(video: HTMLVideoElement, onDecode: (result: QrScanner.ScanResult) => void, options: {
         onDecodeError?: (error: Error | string) => void;
         calculateScanRegion?: (video: HTMLVideoElement) => QrScanner.ScanRegion;
@@ -35,6 +36,7 @@ declare class QrScanner {
         overlay?: HTMLDivElement;
         /** just a temporary flag until we switch entirely to the new api */
         returnDetailedScanResult?: true;
+        videoTrackConstraints?: MediaTrackConstraints;
     });
     /** @deprecated */
     constructor(video: HTMLVideoElement, onDecode: (result: string) => void, onDecodeError?: (error: Error | string) => void, calculateScanRegion?: (video: HTMLVideoElement) => QrScanner.ScanRegion, preferredCamera?: QrScanner.FacingMode | QrScanner.DeviceId);
